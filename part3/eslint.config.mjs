@@ -1,7 +1,6 @@
 import globals from "globals"
 import js from '@eslint/js'
 import stylisticJs from '@stylistic/eslint-plugin-js'
-import { plugin } from "mongoose"
 
 export default [
   js.configs.recommended,
@@ -27,7 +26,7 @@ export default [
       ],
       '@stylistic/js/linebreak-style': [
         'error',
-        'unix'
+        'windows'
       ],
       '@stylistic/js/quotes': [
         'error',
