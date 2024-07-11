@@ -9,7 +9,8 @@
     "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../part2 && npm run build && @powershell Copy-Item dist -Recurse ../part3",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
-    "logs:prod": "fly logs"
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
   },
   "author": "Thanh Toan Tu",
   "license": "ISC",
@@ -21,7 +22,11 @@
     "mongoose": "^8.5.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.6.0",
     "@flydotio/dockerfile": "^0.5.7",
+    "@stylistic/eslint-plugin-js": "^2.3.0",
+    "eslint": "^9.6.0",
+    "globals": "^15.8.0",
     "nodemon": "^3.1.4"
   }
 }

@@ -61,8 +61,8 @@ app.put('/api/notes/:id', (request, response, next) => {
     const { content, important } = request.body
 
     Note.findByIdAndUpdate(
-        request.params.id, 
-        { content, important }, 
+        request.params.id,
+        { content, important },
         { new: true, runValidators: true, context: 'query' } // context: 'query' ensures validators run in the context of the query
     )
         .then(updatedNote => {
