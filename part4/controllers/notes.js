@@ -1,13 +1,13 @@
+const jwt = require('jsonwebtoken')
 const notesRouter = require('express').Router()
 const Note = require('../models/note')
 const User = require('../models/user')
-const jwt = require('jsonwebtoken')
 
 const getTokenFrom = request => {
     const authorization = request.get('authorization')
 
-    if (authorization && authorization.startsWith('Bearer')) {
-        return authorization.replace('Bearer', '')
+    if (authorization && authorization.startsWith('Bearer ')) {
+        return authorization.replace('Bearer ', '')
     }
 
     return null
@@ -41,8 +41,8 @@ notesRouter.post('/', async (request, response) => {
 
     const note = new Note({
         content: body.content,
-        important: body.important === undefined ? false : body.important,
-        user: user.id
+        important: body.important || false,
+        user: user._id
     })
 
     const savedNote = await note.save()
