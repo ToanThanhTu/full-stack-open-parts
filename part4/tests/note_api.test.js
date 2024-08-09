@@ -126,7 +126,7 @@ describe('when there is initially some notes saved', () => {
     })
 })
 
-describe('when there is initially one user in db', () => {
+describe.only('when there is initially one user in db', () => {
     beforeEach(async () => {
         await User.deleteMany()
 
@@ -136,7 +136,7 @@ describe('when there is initially one user in db', () => {
         await user.save()
     })
 
-    test('creation succeeds with a fresh username', async () => {
+    test.only('creation succeeds with a fresh username', async () => {
         const usersAtStart = await helper.usersInDb()
 
         const newUser = {
