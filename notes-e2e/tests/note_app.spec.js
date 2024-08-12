@@ -94,6 +94,13 @@ describe('Note app', () => {
                 await otherNoteElement.getByRole('button', { name: 'make not important' }).click()
                 await expect(otherNoteElement.getByText('make important')).toBeVisible()
             })
+
+            test('Checking for things', async ({ page }) => {
+                const first = await page.getByText('first note')
+
+                const firstContent = await first.evaluate(note => note.content)
+                console.log(firstContent)                
+            })
         })
     })
 
